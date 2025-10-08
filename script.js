@@ -55,11 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     scoreDiv.textContent = `Your score is ${score} out of ${totalQuestions}.`;
   });
 
-  // Show last score if available
-  const lastScore = localStorage.getItem('score');
-  if (lastScore !== null) {
-    scoreDiv.textContent = `Your score is ${lastScore} out of ${totalQuestions}.`;
-  }
-
+  // Load progress on page load
   loadProgress();
 });
