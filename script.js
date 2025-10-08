@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('quiz-form');
+  const questionsDiv = document.getElementById('questions');
   const submitBtn = document.getElementById('submit');
   const scoreDiv = document.getElementById('score');
   const totalQuestions = 5;
@@ -12,10 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         const progress = JSON.parse(progJson);
         Object.entries(progress).forEach(([qName, value]) => {
-          const radio = form.querySelector(`input[name="${qName}"][value="${value}"]`);
+          const radio = document.querySelector(`input[name="${qName}"][value="${value}"]`);
           if (radio) radio.checked = true;
         });
-      } catch (err) { console.error('Error parsing progress:', err); }
+      } catch (err) { 
+        console.error('Error parsing progress:', err); 
+      }
     }
   }
 
@@ -30,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Listen for changes to any radio button
-  form.addEventListener('change', (e) => {
+  questionsDiv.addEventListener('change', (e) => {
     if (e.target.type === 'radio') {
       saveAnswer(e.target.name, e.target.value);
     }
@@ -44,9 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       progress = JSON.parse(sessionStorage.getItem('progress')) || {};
     } catch {}
+    
     Object.entries(correctAnswers).forEach(([qName, right]) => {
       if (progress[qName] && progress[qName] === right) score++;
     });
+    
     localStorage.setItem('score', score);
     scoreDiv.textContent = `Your score is ${score} out of ${totalQuestions}.`;
   });

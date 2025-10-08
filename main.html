@@ -6,58 +6,44 @@
 </head>
 <body>
   <h1>Quiz</h1>
-
-  <!-- Added wrapper with id="questions" so Cypress can find div#questions -->
   <div id="questions">
-    <form id="quiz-form">
-      <div class="question" data-qid="1">
-        <p>1. What is the capital of France?</p>
-        <label><input type="radio" name="q1" value="A"> A) London</label><br>
-        <label><input type="radio" name="q1" value="B"> B) Berlin</label><br>
-        <label><input type="radio" name="q1" value="C"> C) Paris</label><br>
-        <label><input type="radio" name="q1" value="D"> D) Madrid</label><br>
-      </div>
-
-      <div class="question" data-qid="2">
-        <p>2. Who wrote "Hamlet"?</p>
-        <label><input type="radio" name="q2" value="A"> A) Charles Dickens</label><br>
-        <label><input type="radio" name="q2" value="B"> B) William Shakespeare</label><br>
-        <label><input type="radio" name="q2" value="C"> C) Mark Twain</label><br>
-        <label><input type="radio" name="q2" value="D"> D) Leo Tolstoy</label><br>
-      </div>
-
-      <div class="question" data-qid="3">
-        <p>3. What is the largest planet in our Solar System?</p>
-        <label><input type="radio" name="q3" value="A"> A) Earth</label><br>
-        <label><input type="radio" name="q3" value="B"> B) Mars</label><br>
-        <label><input type="radio" name="q3" value="C"> C) Jupiter</label><br>
-        <label><input type="radio" name="q3" value="D"> D) Saturn</label><br>
-      </div>
-
-      <div class="question" data-qid="4">
-        <p>4. What is 2 + 2 × 2?</p>
-        <label><input type="radio" name="q4" value="A"> A) 6</label><br>
-        <label><input type="radio" name="q4" value="B"> B) 8</label><br>
-        <label><input type="radio" name="q4" value="C"> C) 4</label><br>
-        <label><input type="radio" name="q4" value="D"> D) 2</label><br>
-      </div>
-
-      <div class="question" data-qid="5">
-        <p>5. What color do you get when you mix red and white?</p>
-        <label><input type="radio" name="q5" value="A"> A) Pink</label><br>
-        <label><input type="radio" name="q5" value="B"> B) Purple</label><br>
-        <label><input type="radio" name="q5" value="C"> C) Orange</label><br>
-        <label><input type="radio" name="q5" value="D"> D) Brown</label><br>
-      </div>
-
-      <!-- Changed button ID to 'submit' to match test -->
-      <button type="button" id="submit">Submit</button>
-    </form>
+    <div class="question" data-qid="1">
+      <p>1. What is the capital of France?</p>
+      <input type="radio" name="q1" value="A"> A) London<br>
+      <input type="radio" name="q1" value="B"> B) Berlin<br>
+      <input type="radio" name="q1" value="C"> C) Paris<br>
+      <input type="radio" name="q1" value="D"> D) Madrid<br>
+    </div>
+    <div class="question" data-qid="2">
+      <p>2. Who wrote "Hamlet"?</p>
+      <input type="radio" name="q2" value="A"> A) Charles Dickens<br>
+      <input type="radio" name="q2" value="B"> B) William Shakespeare<br>
+      <input type="radio" name="q2" value="C"> C) Mark Twain<br>
+      <input type="radio" name="q2" value="D"> D) Leo Tolstoy<br>
+    </div>
+    <div class="question" data-qid="3">
+      <p>3. What is the largest planet in our Solar System?</p>
+      <input type="radio" name="q3" value="A"> A) Earth<br>
+      <input type="radio" name="q3" value="B"> B) Mars<br>
+      <input type="radio" name="q3" value="C"> C) Jupiter<br>
+      <input type="radio" name="q3" value="D"> D) Saturn<br>
+    </div>
+    <div class="question" data-qid="4">
+      <p>4. What is 2 + 2?</p>
+      <input type="radio" name="q4" value="A"> A) 4<br>
+      <input type="radio" name="q4" value="B"> B) 3<br>
+      <input type="radio" name="q4" value="C"> C) 5<br>
+      <input type="radio" name="q4" value="D"> D) 6<br>
+    </div>
+    <div class="question" data-qid="5">
+      <p>5. What is the capital of Japan?</p>
+      <input type="radio" name="q5" value="A"> A) Tokyo<br>
+      <input type="radio" name="q5" value="B"> B) Beijing<br>
+      <input type="radio" name="q5" value="C"> C) Seoul<br>
+      <input type="radio" name="q5" value="D"> D) Bangkok<br>
+    </div>
   </div>
-
-  <!-- Changed result div to id="score" so tests using div#score work -->
+  <button id="submit">Submit</button>
   <div id="score"></div>
-
-  <script src="script.js"></script>
 </body>
 </html>
