@@ -13,7 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const progress = JSON.parse(progJson);
         Object.entries(progress).forEach(([qName, value]) => {
           const radio = form.querySelector(`input[name="${qName}"][value="${value}"]`);
-          if (radio) radio.checked = true;
+          if (radio) {
+            radio.checked = true;
+            radio.setAttribute('checked', 'true');
+          }
         });
       } catch (err) { console.error('Error parsing progress:', err); }
     }
@@ -32,6 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Event listener for radio changes
   form.addEventListener('change', (e) => {
     if (e.target.type === 'radio') {
+      // Remove checked attribute from all radios in this question
+      const radios = form.querySelectorAll(`input[name="${e.target.name}"]`);
+      radios.forEach(radio => {
+        radio.removeAttribute('checked');
+      });
+      // Set checked attribute on the selected radio
+      e.target.setAttribute('checked', 'true');
       saveAnswer(e.target.name, e.target.value);
     }
   });
@@ -56,6 +66,5 @@ document.addEventListener('DOMContentLoaded', () => {
   if (lastScore !== null) {
     scoreDiv.textContent = `Your score is ${lastScore} out of ${totalQuestions}.`;
   }
-
   loadProgress();
 });
